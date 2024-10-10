@@ -7,7 +7,8 @@ class Bots:
         self.adder = FactoryBot.create(FactoryBot.ADDER)
         self.multiplier = None
         self.printer = FactoryBot.create(FactoryBot.PRINTER)
-        self.subtractor = None
+        self.subtractor = FactoryBot.create(FactoryBot.SUBTRACTOR)
+        self.multiplier = FactoryBot.create(FactoryBot.MULTIPLIER)
 
 class Orchestrator:
 

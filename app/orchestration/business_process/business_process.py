@@ -1,5 +1,5 @@
 from ...models.pipeline import Pipeline
-from .steps import StepStarted, StepAdding, StepDone, StepValidating, StepSubtracting
+from .steps import StepStarted, StepAdding, StepDone, StepValidating, StepSubtracting, StepMultiplying
 from typing import Any, List
 
 class BusinessProcess:
@@ -9,6 +9,7 @@ class BusinessProcess:
     #TODO: Implement the other steps
     VALIDATING = "Validating"
     SUBTRACTING = "Subtracting"
+    MUTIPLYING = "Multiplying"
     DONE = "Done"
 
     @staticmethod
@@ -23,8 +24,9 @@ class BusinessProcess:
             BusinessProcess.STARTED,
             BusinessProcess.VALIDATING,
             BusinessProcess.ADDING,
-            BusinessProcess.SUBTRACTING,
             #TODO: Implement the other steps
+            BusinessProcess.SUBTRACTING,
+            BusinessProcess.MUTIPLYING,
             BusinessProcess.DONE,
         ]
     
@@ -39,12 +41,12 @@ class BusinessProcess:
         if pipeline.step == BusinessProcess.ADDING:
             StepAdding.run(orchestrator, pipeline)
             BusinessProcess.forward(pipeline)
+        #TODO: Implement the other steps
         if pipeline.step == BusinessProcess.SUBTRACTING:
             StepSubtracting.run(orchestrator, pipeline)
             BusinessProcess.forward(pipeline)
-        if pipeline.step == BusinessProcess.MUL:
-            StepSubtracting.run(orchestrator, pipeline)
+        if pipeline.step == BusinessProcess.MUTIPLYING:
+            StepMultiplying.run(orchestrator, pipeline)
             BusinessProcess.forward(pipeline)
-        #TODO: Implement the other steps
         if pipeline.step == BusinessProcess.DONE:
             StepDone.run(orchestrator, pipeline)

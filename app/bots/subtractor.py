@@ -3,5 +3,5 @@ class SubtractorBot:
     def __init__(self) -> None:
         ...
 
-    def subtract(self, lhs: int, rhs: int) -> int:
-        return lhs - rhs
+    def subtract(self, result: int) -> int:
+        return result - 15

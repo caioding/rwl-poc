@@ -3,5 +3,5 @@ class MultiplierBot:
     def __init__(self) -> None:
         ...
 
-    def multiply(self, result: int) -> int:
-        return result * 4
+    def multiply(self, lhs: int, rhs: int) -> int:
+        return lhs * rhs
